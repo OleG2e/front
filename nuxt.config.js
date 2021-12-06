@@ -37,6 +37,12 @@ export default {
     port: 3000,
     host: '0.0.0.0', // default: localhost
   },
+
+  publicRuntimeConfig: {
+    host: process.env.HOST || 'http://mikun.loc',
+    apiEndpoint: `${process.env.HOST}${process.env.API_ENDPOINT}` || 'http://mikun.loc/api/v1',
+  },
+
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
@@ -49,7 +55,7 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ['@nuxtjs/axios'],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
